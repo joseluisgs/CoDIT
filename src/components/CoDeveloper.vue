@@ -69,15 +69,15 @@
         let meta = ''
 
         if (this.email) {
-          meta = `${meta} ${this.email}`
+          meta = `${meta} ${this.email}`;
         }
 
         if (this.location) {
-          meta = `${meta} ${this.location}`
+          meta = `${meta} ${this.location}`;
         }
 
         if (this.company) {
-          meta = `${meta} ${this.company}`
+          meta = `${meta} ${this.company}`;
         }
 
         return meta
@@ -86,7 +86,7 @@
     // Cuando detecta un cambio en una variable (reactivo) hace la acción
     watch: {
       metadata (newValue) {
-        console.log('Metadata:', newValue)
+        console.log('Metadata:', newValue);
       }
     }
   }

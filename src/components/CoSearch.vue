@@ -16,6 +16,12 @@
       return {
         criteria: ''
       }
+    },
+    // Observador, para que se dipsrae y haga el evento una vez lo tengamos
+    watch: {
+      criteria () {
+        this.$emit('search', this.criteria);
+      }
     }
   }
 </script>

@@ -14,6 +14,10 @@
       return {
         users: []
       }
+    },
+    //Indicamos que reaccionaremos en el ciclo de vida de del compoente en su estado montado
+    mounted () {
+      console.log('CoDeveloper mounted')
     }
   }
 </script>
