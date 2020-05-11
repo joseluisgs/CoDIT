@@ -36,7 +36,7 @@ Tareas que podemos ejecutar dentro de nuestra aplicación. Te recomiendo leer el
 * [GitHub](https://github.com/joseluisgs)
 
 ## License
-Este proyecto esta licenciado bajo licencia __MIT__, si desea saber más, visite el fichero [LICENSE](https://github.com/joseluisgs/GitUserVue/blob/master/LICENSE)
+Este proyecto esta licenciado bajo licencia __MIT__, si desea saber más, visite el fichero [LICENSE](https://github.com/joseluisgs/CoDIT/blob/master/LICENSE.md)
 
 #### Más info
 Basado en el cueso de Vue de https://openwebinars.net/
