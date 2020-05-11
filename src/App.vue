@@ -19,7 +19,7 @@
   import CoLogo from '@/components/CoLogo'
   import CoSearch from '@/components/CoSearch'
   import CoBookmarks from '@/components/CoBookmarks'
-  import CoDevelopers from '@/components/CoDevelopers'
+  //import CoDevelopers from '@/components/CoDevelopers' // Lo haremos asíncrono
 
   export default {
     name: 'CoApp',
@@ -34,8 +34,17 @@
       CoLogo,
       CoSearch,
       CoBookmarks,
-      CoDevelopers
-    }
+      // Indicamos que en vez que lo cargue el, lo haremos nosotross asíncrona
+      CoDevelopers: () => import('@/components/CoDevelopers'),
+      // O indicándoselo de manera manual
+      /* CoDevelopers: () => ({
+        component: import('@/components/CoDevelopers'),
+        delay: 400,
+        timeout: 5000
+        loading: CoLoading, // nos podnría otro componente mientras
+        error: CoError // componente si fallara
+     }) */
+    },
   };
 </script>
 
