@@ -9,8 +9,8 @@
 
 <script>
   export default {
-    name: 'CoBookmarks',
-  };
+    name: 'CoBookmarks'
+  }
 </script>
 
 <style lang='css'>

@@ -9,6 +9,7 @@
 <script>
   export default {
     name: 'CoDevelopers',
+    // Datos con los que se iniciliza el componente
     data () {
       return {
         users: []

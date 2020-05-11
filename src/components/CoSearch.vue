@@ -2,7 +2,7 @@
   <input
     name='search'
     type='text'
-    placeholder='Write an user!'
+    placeholder='github username'
     class='search'
   />
 
@@ -11,6 +11,7 @@
 <script>
   export default {
     name: 'CoSearch',
+    // LLo inicializo con un criterio de búsqueda
     data() {
       return {
         criteria: ''

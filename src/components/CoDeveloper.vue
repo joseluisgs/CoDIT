@@ -28,6 +28,8 @@
 <script>
   export default {
     name: 'CoDeveloper',
+    // Props son los datos que recibo de mi padre
+    // Como me llega un objeto JSON obtengo sus propiedades
     props: {
       avatar: {
         type: String,
@@ -57,6 +59,34 @@
       },
       gists: {
         type: Number
+      }
+    },
+    // Son funciones internas del componente que trabaja con los datos, por eso podemos acceder con el this
+    // Caunndo desde la vista accedamos a ella tendrá estos datos que hemos calculado
+    // ropiedad interna que se calcula en base a otros.
+    computed: {
+      metadata () {
+        let meta = ''
+
+        if (this.email) {
+          meta = `${meta} ${this.email}`
+        }
+
+        if (this.location) {
+          meta = `${meta} ${this.location}`
+        }
+
+        if (this.company) {
+          meta = `${meta} ${this.company}`
+        }
+
+        return meta
+      }
+    },
+    // Cuando detecta un cambio en una variable (reactivo) hace la acción
+    watch: {
+      metadata (newValue) {
+        console.log('Metadata:', newValue)
       }
     }
   }
