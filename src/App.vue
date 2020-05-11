@@ -26,7 +26,7 @@
     // Metodos que podemos realizar, por ejemplo al recibir un evento en la vista
     methods: {
       onSearch (searchCriteria) {
-        console.log('Search ', searchCriteria);
+        console.log('App Respondo al evento de mi hijo por v-on Search: ', searchCriteria);
       }
     },
     // Componentes a usar

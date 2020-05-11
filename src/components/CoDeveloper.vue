@@ -26,6 +26,7 @@
 </template>
 
 <script>
+// Se suscribe al bus de eventos
   export default {
     name: 'CoDeveloper',
     // Props son los datos que recibo de mi padre
