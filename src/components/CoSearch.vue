@@ -33,6 +33,8 @@
   }
 </script>
 
-<style lang='css'>
-
+<style lang='css' scoped>
+  .search {
+    margin: 1rem;
+  }
 </style>

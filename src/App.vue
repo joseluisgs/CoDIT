@@ -1,18 +1,5 @@
-<template lang='html'>
-  <div class='codit'>
-    <div class='container'>
-      <nav class='menu'>
-       <co-search v-on:search='onSearch'></co-search>
-        <co-bookmarks></co-bookmarks>
-      </nav>
-      <main class='content'>
-        <header class='content__header'>
-          <co-logo></co-logo>
-        </header>
-        <co-developers></co-developers>
-      </main>
-    </div>
-  </div>
+<template
+  lang='html' src='./App.html'>
 </template>
 
 <script>
@@ -49,4 +36,10 @@
 </script>
 
 <style lang='css'>
+  @import 'assets/css/reset';
+  @import 'assets/css/global';
 </style>
+
+<style lang='css' scoped src='./App.css'>
+</style>
+
