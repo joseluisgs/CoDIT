@@ -1,15 +1,26 @@
 <template lang='html'>
-<!--   <ul class='bookmarks'>
-    <li class='bookmarks__bookmark'>
-      {{ bookmark.name }}
-      <span class='bookmark__small'>[{{ bookmark.id }}]</span>
-    </li>
-  </ul> -->
+  <div class="co-bookmarks">
+    <ul v-if='!bookmarks.length' class="bookmarks">
+      <li v-for="bookmark in bookmarks" class="bookmarks__bookmark">
+        {{ bookmark.name }}
+        <span class="bookmark__small">[{{ bookmark.login }}]</span>
+      </li>
+    </ul>
+    <p v-else class="bookmarks__empty">No tienes nada seleccionado</p>
+  </div>
 </template>
 
 <script>
+  import mocks from '@/mocks/users'
+
   export default {
-    name: 'CoBookmarks'
+    name: 'CoBookmarks',
+    // Como no siniciliazamos
+    data () {
+      return {
+        bookmarks: mocks
+      }
+    }
   }
 </script>
 

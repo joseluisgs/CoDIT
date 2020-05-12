@@ -9,11 +9,11 @@
       <div class='developer__metadata'>{{ metadata }}</div>
     </div>
     <div class='developer__stats'>
-      <div class='developer__stat'>
+      <div class='developer__stat repos' v-if='repos'>
         <div class='developer__icon'></div>
         <div class='developer__total'>{{ repos }}</div>
       </div>
-      <div class='developer__stat'>
+      <div class='developer__stat gists' v-show='gists'>
         <div class='developer__icon'></div>
         <div class='developer__total'>{{ gists }}</div>
       </div>
@@ -37,15 +37,15 @@
       },
       name: {
         type: String,
-        required: true,
+        required: true
       },
       login: {
         type: String,
-        required: true,
+        required: true
       },
       email: {
         type: String,
-        required: true
+        required: false
       },
       company: {
         type: String,

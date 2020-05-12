@@ -1,16 +1,21 @@
 <template lang='html'>
   <ul class="developers">
     <!-- <li class="developers__item" v-bind:class="{ 'userConNombre': user.name === false }"> -->
-    <li class="developers__item" v-bind:style="userConNombre">
-      <co-developer
-        v-bind:avatar='user.avatar'
-        v-bind:name='user.name'
-        v-bind:login='user.login'
-        v-bind:email='user.email'
-        v-bind:location='user.location'
-        v-bind:repos='user.repos'
-        v-bind:company='user.company'
-      ></co-developer>
+    <!--Hacemos un bind a estilos-->
+    <!-- <li class="developers__item" v-bind:style="userConNombre"> -->
+      <!-- Reccorremos con un for
+        Creamos el componente develpoer y le pasamos estos datos a sus propiedades con bind-->
+      <li v-for='user in users' class="developers__item">
+        <co-developer
+           v-bind:avatar='user.avatar_url'
+          v-bind:name='user.name'
+          v-bind:login='user.login'
+          v-bind:email='user.email'
+          v-bind:location='user.location'
+          v-bind:company='user.company'
+          v-bind:repos='user.public_repos'
+          v-bind:gists='user.public_gists'
+        ></co-developer>
     </li>
   </ul>
 </template>
@@ -19,15 +24,17 @@
   // Bus para importarse
   import bus from '@/busdata.js'
   import CoDeveloper from '@/components/CoDeveloper'
+  // datos de prueba
+  import mocks from '@/mocks/users'
 
   export default {
     name: 'CoDevelopers',
     // Datos con los que se iniciliza el componente
     data () {
       return {
-        users: [],
+        users: mocks,
         // Dato de prueba
-        user: {
+        /* user: {
           avatar: 'https://avatars2.githubusercontent.com/u/25254?v=4',
           name: 'TJ Holowaychuk',
           login: 'tj',
@@ -41,7 +48,7 @@
         userConNombre: {
           fontWeight: 900,
           color: 'red'
-        }
+        } */
       }
     },
     // Como voy a usar un componente lo registramos

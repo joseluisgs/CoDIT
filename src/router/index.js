@@ -1,5 +1,8 @@
+// Dependencias
 import Vue from 'vue';
+// Enrutador
 import Router from 'vue-router';
+// Componentes a enrutar
 import Hello from '@/components/Hello';
 
 Vue.use(Router);
