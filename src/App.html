@@ -8,7 +8,10 @@
       <header class="content__header">
         <co-logo></co-logo>
       </header>
-      <co-developers></co-developers>
+      <transition name="joseluisgs" v-if="show">
+        <co-developers></co-developers>
+      </transition>
+
     </main>
   </div>
 </div>

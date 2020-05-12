@@ -54,3 +54,10 @@ input:focus {
   background-color: var(--color-white);
   color: var(--color-blue);
 }
+
+.joseluisgs-enter-active, .joseluisgs-leave-active {
+  transition: opacity 4s
+}
+.joseluisgs-enter, .joseluisgs-leave-to {
+  opacity: 0
+}
