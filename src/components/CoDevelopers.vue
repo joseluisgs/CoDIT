@@ -1,7 +1,16 @@
 <template lang='html'>
   <ul class="developers">
-    <li class="developers__item">
-      <co-developer></co-developer>
+    <!-- <li class="developers__item" v-bind:class="{ 'userConNombre': user.name === false }"> -->
+    <li class="developers__item" v-bind:style="userConNombre">
+      <co-developer
+        v-bind:avatar='user.avatar'
+        v-bind:name='user.name'
+        v-bind:login='user.login'
+        v-bind:email='user.email'
+        v-bind:location='user.location'
+        v-bind:repos='user.repos'
+        v-bind:company='user.company'
+      ></co-developer>
     </li>
   </ul>
 </template>
@@ -9,14 +18,35 @@
 <script>
   // Bus para importarse
   import bus from '@/busdata.js'
+  import CoDeveloper from '@/components/CoDeveloper'
 
   export default {
     name: 'CoDevelopers',
     // Datos con los que se iniciliza el componente
     data () {
       return {
-        users: []
+        users: [],
+        // Dato de prueba
+        user: {
+          avatar: 'https://avatars2.githubusercontent.com/u/25254?v=4',
+          name: 'TJ Holowaychuk',
+          login: 'tj',
+          email: 'tj@apex.sh',
+          location: 'Victoria, BC, Canada',
+          company: 'Apex',
+          repos: 200,
+          gitst: 15
+        },
+        // Pode meter estilos como bindings
+        userConNombre: {
+          fontWeight: 900,
+          color: 'red'
+        }
       }
+    },
+    // Como voy a usar un componente lo registramos
+    components: {
+      CoDeveloper
     },
     //Indicamos que reaccionaremos en el ciclo de vida de del compoente en su estado montado
     mounted () {

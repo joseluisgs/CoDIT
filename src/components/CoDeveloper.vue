@@ -1,16 +1,12 @@
 <template lang='html'>
   <div class='developer'>
-    <img class='developer__avatar'/>
+    <img v-bind:src='avatar' class='developer__avatar'/>
     <div class='developer__info'>
       <h2>
         <span class='developer__name'>{{ name }}</span>
          <span class='developer__login'>[{{ login }}]</span>
       </h2>
-      <div class='developer__metadata'>
-        <span class='developer__data'>{{ email }}</span>
-        <span class='developer__data'>{{ location }}</span>
-        <span class='developer__data'>{{ company }}</span>
-      </div>
+      <div class='developer__metadata'>{{ metadata }}</div>
     </div>
     <div class='developer__stats'>
       <div class='developer__stat'>
@@ -36,7 +32,7 @@
         type: String,
         required: true,
         validator (value) {
-          return value.starsWith('http')
+          return value.startsWith('http');
         },
       },
       name: {
@@ -55,7 +51,7 @@
         type: String,
         required: false
       },
-      respos: {
+      repos: {
         type: Number
       },
       gists: {
