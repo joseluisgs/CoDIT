@@ -1,5 +1,6 @@
 <template lang='html'>
-  <h1 class='logo'>{{appName}}</h1>
+<!-- Los filtros se pueden apliacr en forma de tuberías que la salida de uno sea la entrada de otro -->
+  <h1 class='logo'>{{ appName | upper | capitalize }}</h1>
 </template>
 
 <script>
@@ -8,6 +9,22 @@
     data() {
       return{
         appName: 'Codit GitHub'
+      }
+    },
+    //  permiten filtrar el contenido de los datos que llegan al template desde data, props o computed
+     filters: {
+      upper (value) {
+        console.log('upper')
+        if (!value) {
+          return ''
+        }
+        return value.toUpperCase()
+      },
+      capitalize (value) {
+        if (!value) {
+          return ''
+        }
+        return value.charAt(0) + value.slice(1).toLowerCase()
       }
     }
   }
