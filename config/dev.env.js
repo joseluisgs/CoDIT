@@ -5,5 +5,5 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  //TOKEN: '"311a710dd6d00f422d6256f42399f8c72b76c2de"'
-})
+  TOKEN: '"6dfbc869cc8e229a95a484330c4942200dec2954"'
+});

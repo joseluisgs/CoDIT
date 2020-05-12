@@ -26,6 +26,7 @@
   import CoDeveloper from '@/components/CoDeveloper'
   // datos de prueba
   //import mocks from '@/mocks/users'
+  import http from 'axios'
 
   export default {
     name: 'CoDevelopers',
@@ -64,7 +65,7 @@
     },
     // Cuando somos creados, el componente, escuchamos en evento del bus del tipo search
     created () {
-      bus.$on('search', criteria => {
+        bus.$on('search', criteria => {
         console.log('CoDevelopers Respondo el evento suscrito por bus: ', criteria)
       })
     },
@@ -72,33 +73,36 @@
     // Petición por fecth usadno AJAX
      methods: {
         getTopUsers () {
-          return fetch(
-            `${process.env.API}search/users?q=language:javascript&order=desc&per_page=15`,
-            /* {
+        return http({
+          method: 'GET',
+          url: `${process.env.API}search/users`,
+          params: {
+            q: 'language:javascript',
+            order: 'desc',
+            per_page: 15
+          },
+          headers: {
+            'Authorization': `token ${process.env.TOKEN}`
+          }
+        })
+          .then(response => response.data)
+          .then(response => response.items)
+          .then(users => users.map(user =>
+            http({
+              method: 'GET',
+              url: `${process.env.API}users/${user.login}`,
               headers: {
                 'Authorization': `token ${process.env.TOKEN}`
               }
-            } */
-          )
-            .then(response => response.json())
-            .then(response => response.items)
-            .then(users => users.map(user =>
-              fetch(
-                `${process.env.API}users/${user.login}`,
-              /* {
-                  headers: {
-                      'Authorization': `token ${process.env.TOKEN}`
-                    }
-                  } */
-              )
-                .then(response => response.json())
-            ))
-            .then(response => Promise.all(response))
-            .then(users => {
-              this.users = users
             })
-        }
+              .then(response => response.data)
+          ))
+          .then(response => Promise.all(response))
+          .then(users => {
+            this.users = users
+          })
       }
+    }
   }
 </script>
 

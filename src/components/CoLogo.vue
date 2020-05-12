@@ -1,6 +1,6 @@
 <template lang='html'>
 <!-- Los filtros se pueden apliacr en forma de tuberías que la salida de uno sea la entrada de otro -->
-  <h1 class='logo'>{{ appName | upper | capitalize }}</h1>
+  <h1 class='logo'>{{ appName | capitalize }}</h1>
 </template>
 
 <script>
