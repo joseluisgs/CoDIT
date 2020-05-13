@@ -81,9 +81,9 @@
             order: 'desc',
             per_page: 15
           },
-          headers: {
+          /* headers: {
             'Authorization': `token ${process.env.TOKEN}`
-          }
+          } */
         })
           .then(response => response.data)
           .then(response => response.items)
@@ -91,9 +91,9 @@
             http({
               method: 'GET',
               url: `${process.env.API}users/${user.login}`,
-              headers: {
+              /* headers: {
                 'Authorization': `token ${process.env.TOKEN}`
-              }
+              } */
             })
               .then(response => response.data)
           ))

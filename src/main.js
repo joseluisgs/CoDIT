@@ -14,7 +14,7 @@ Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({
   el: '#codit',
-  router,
-  template: '<co-app/>',
-  components: { CoApp },
+  router,                 // Le decimos el router por defecto
+  template: '<co-app/>',  // La template por defecto
+  components: { CoApp },  // El componente inicial
 });
