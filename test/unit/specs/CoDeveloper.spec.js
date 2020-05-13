@@ -41,11 +41,11 @@ describe('Component: CoDeveloper', () => {
   });
   // Despues de montar el componente
   describe('after mount component', () => {
-    it('should be mounted successfully', function () {
+    it('should be mounted successfully', function testMounted() {
       this.vm.should.be.defined;
     });
 
-    it('should render correct contents', function () {
+    it('should render correct contents', function testRender() {
       const src = this.vm.$el.querySelector('.developer .developer__avatar').src;
       src.should.be.equal('https://avatars2.githubusercontent.com/u/25254?v=4');
     });
