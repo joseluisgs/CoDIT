@@ -9,7 +9,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: ['airbnb-base', 'eslint:recommended'],
+  extends: ['airbnb-base'],
   // required to lint *.vue files
   plugins: [
     'html'
@@ -29,6 +29,7 @@ module.exports = {
       'js': 'never',
       'vue': 'never'
     }],
+    //'semi': ["error", "always"],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       'optionalDependencies': ['test/unit/index.js']

@@ -7,7 +7,7 @@
         Creamos el componente develpoer y le pasamos estos datos a sus propiedades con bind-->
       <li v-for='user in users' class="developers__item">
         <!-- Enrutamos este elemento con a ruta profile -->
-        <router-link v-bind:to="{ name: 'profile' }">
+        <router-link v-bind:to="{ name: 'profile',  params: { user: user.login } }">
           <co-developer
             v-bind:avatar='user.avatar_url'
             v-bind:name='user.name'
@@ -25,11 +25,11 @@
 
 <script>
   // Bus para importarse
-  import bus from '@/busdata.js'
-  import CoDeveloper from '@/components/CoDeveloper'
+  import bus from '@/busdata.js';
+  import CoDeveloper from '@/components/CoDeveloper';
   // datos de prueba
   //import mocks from '@/mocks/users'
-  import http from 'axios'
+  import http from 'axios';
 
   export default {
     name: 'CoDevelopers',

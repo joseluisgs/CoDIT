@@ -15,7 +15,7 @@
 
 <script>
   // bus de datos para
-  import bus from '@/busdata.js'
+  import bus from '@/busdata.js';
 
   export default {
     name: 'CoSearch',

@@ -50,9 +50,10 @@
 
 
 <script>
-  import CoGoToHome from '@/components/CoGoToHome'
-  import CoSocial from '@/components/CoSocial'
-  import CoEvents from '@/components/CoEvents'
+  import CoGoToHome from '@/components/CoGoToHome';
+  import CoSocial from '@/components/CoSocial';
+  import CoEvents from '@/components/CoEvents';
+  import axios from 'axios';
 
   export default {
     name: 'CoProfile',
@@ -92,9 +93,31 @@
     },
     methods: {
       getUserData () {
-        console.log('getUserData')
+        console.log('getUserData');
+        return axios({
+          method: 'GET',
+          url: `${process.env.API}users/${this.user}`,
+          headers: { 'Authorization': `token ${process.env.TOKEN}` }
+        })
+          .then(response => response.data)
+          .then(user => {
+            this.info = user
+          })
+        },
+        // Podemos jugar con los ecventos del router desde aquí pero queda aclopado
+       /*  beforeRouteEnter (to, from, next) {
+          console.log('beforeRouteEnter CoProfile');
+          next()
+        },
+        beforeRouterUpdate (to, from, next) {
+          console.log('beforeRouterUpdate CoProfile');
+          next()
+        },
+        beforeRouteLeave (to, from, next) {
+          console.log('beforeRouteLeave CoProfile')
+          next()
+        } */
       }
-    }
   }
 </script>
 
