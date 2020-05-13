@@ -32,15 +32,15 @@ const router = new Router({
     {
       path: '/not-found',
       name: '404',
-      component: CoNotFound
+      component: CoNotFound,
     },
     // Otra ruta no conicda la llevamos a esa
     {
       path: '*',
       redirect: {
-        name: '404'
-      }
-    }
+        name: '404',
+      },
+    },
   ],
 });
 

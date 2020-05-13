@@ -7,14 +7,14 @@ import router from './router';
 // Componente principal
 import CoApp from './App';
 // Directivas a nivel globa
-import './directives/focus'
+import './directives/focus';
 
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
   el: '#codit',
-  router,                 // Le decimos el router por defecto
-  template: '<co-app/>',  // La template por defecto
-  components: { CoApp },  // El componente inicial
+  router, // Le decimos el router por defecto
+  template: '<co-app/>', // La template por defecto
+  components: { CoApp }, // El componente inicial
 });
