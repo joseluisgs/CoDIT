@@ -6,16 +6,19 @@
       <!-- Reccorremos con un for
         Creamos el componente develpoer y le pasamos estos datos a sus propiedades con bind-->
       <li v-for='user in users' class="developers__item">
-        <co-developer
-          v-bind:avatar='user.avatar_url'
-          v-bind:name='user.name'
-          v-bind:login='user.login'
-          v-bind:email='user.email'
-          v-bind:location='user.location'
-          v-bind:company='user.company'
-          v-bind:repos='user.public_repos'
-          v-bind:gists='user.public_gists'
-        ></co-developer>
+        <!-- Enrutamos este elemento con a ruta profile -->
+        <router-link v-bind:to="{ name: 'profile' }">
+          <co-developer
+            v-bind:avatar='user.avatar_url'
+            v-bind:name='user.name'
+            v-bind:login='user.login'
+            v-bind:email='user.email'
+            v-bind:location='user.location'
+            v-bind:company='user.company'
+            v-bind:repos='user.public_repos'
+            v-bind:gists='user.public_gists'
+          ></co-developer>
+        </router-link>
     </li>
   </ul>
 </template>
@@ -81,9 +84,9 @@
             order: 'desc',
             per_page: 15
           },
-          /* headers: {
+          headers: {
             'Authorization': `token ${process.env.TOKEN}`
-          } */
+          }
         })
           .then(response => response.data)
           .then(response => response.items)
@@ -91,9 +94,9 @@
             http({
               method: 'GET',
               url: `${process.env.API}users/${user.login}`,
-              /* headers: {
+              headers: {
                 'Authorization': `token ${process.env.TOKEN}`
-              } */
+              }
             })
               .then(response => response.data)
           ))
