@@ -3,25 +3,25 @@
 </template>
 
 <script>
-  import CoLogo from '@/components/CoLogo'
-  import CoSearch from '@/components/CoSearch'
-  import CoBookmarks from '@/components/CoBookmarks'
-  //import CoDevelopers from '@/components/CoDevelopers' // Lo haremos asíncrono
+  import CoLogo from '@/components/CoLogo';
+  import CoSearch from '@/components/CoSearch';
+  import CoBookmarks from '@/components/CoBookmarks';
+  // import CoDevelopers from '@/components/CoDevelopers' // Lo haremos asíncrono
 
   export default {
     name: 'CoApp',
     // Datos propies
-    data () {
+    data() {
       return {
-        show: true
-      }
+        show: true,
+      };
     },
     // Metodos que podemos realizar, por ejemplo al recibir un evento en la vista
     methods: {
-      onSearch (searchCriteria) {
+      onSearch(searchCriteria) {
         console.log('App Respondo al evento de mi hijo por v-on Search: ', searchCriteria);
-        //this.show = true;
-      }
+        // this.show = true;
+      },
     },
     // Componentes a usar
     components: {

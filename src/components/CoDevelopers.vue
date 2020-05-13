@@ -27,14 +27,13 @@
   // Bus para importarse
   import bus from '@/busdata.js';
   import CoDeveloper from '@/components/CoDeveloper';
-  // datos de prueba
-  //import mocks from '@/mocks/users'
+  // import mocks from '@/mocks/users'
   import http from 'axios';
 
   export default {
     name: 'CoDevelopers',
     // Datos con los que se iniciliza el componente
-    data () {
+    data() {
       return {
         users: [],
         // mocks, --> vector de prueba
@@ -54,39 +53,39 @@
           fontWeight: 900,
           color: 'red'
         } */
-      }
+      };
     },
     // Como voy a usar un componente lo registramos
     components: {
-      CoDeveloper
+      CoDeveloper,
     },
-    //Indicamos que reaccionaremos en el ciclo de vida de del compoente en su estado montado
-    mounted () {
+    // Indicamos que reaccionaremos en el ciclo de vida de del compoente en su estado montado
+    mounted() {
       console.log('CoDeveloper mounted');
       // Consultamos via api los datos
       this.getTopUsers();
     },
     // Cuando somos creados, el componente, escuchamos en evento del bus del tipo search
-    created () {
-        bus.$on('search', criteria => {
-        console.log('CoDevelopers Respondo el evento suscrito por bus: ', criteria)
-      })
+    created() {
+      bus.$on('search', (criteria) => {
+        console.log('CoDevelopers Respondo el evento suscrito por bus: ', criteria);
+      });
     },
-    //Métodos porpios a usar
+    // Métodos porpios a usar
     // Petición por fecth usadno AJAX
-     methods: {
-        getTopUsers () {
+    methods: {
+      getTopUsers() {
         return http({
           method: 'GET',
           url: `${process.env.API}search/users`,
           params: {
             q: 'language:javascript',
             order: 'desc',
-            per_page: 15
+            per_page: 15,
           },
           headers: {
-            'Authorization': `token ${process.env.TOKEN}`
-          }
+            Authorization: `token ${process.env.TOKEN}`,
+          },
         })
           .then(response => response.data)
           .then(response => response.items)
@@ -95,18 +94,18 @@
               method: 'GET',
               url: `${process.env.API}users/${user.login}`,
               headers: {
-                'Authorization': `token ${process.env.TOKEN}`
-              }
+                Authorization: `token ${process.env.TOKEN}`,
+              },
             })
-              .then(response => response.data)
+              .then(response => response.data),
           ))
           .then(response => Promise.all(response))
-          .then(users => {
-            this.users = users
-          })
-      }
-    }
-  }
+          .then((users) => {
+            this.users = users;
+          });
+      },
+    },
+  };
 </script>
 
 <style lang='css' scoped>

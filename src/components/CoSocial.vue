@@ -11,27 +11,27 @@ export default {
   props: {
     text: {
       type: String,
-      required: true
+      required: true,
     },
     total: {
       type: Number,
-      required: true
+      required: true,
     },
     color: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   // Propiedades compuadas, que ponemos en nuestra plantilla
   computed: {
-    styleObject () {
+    styleObject() {
       return {
         backgroundColor: this.color,
-        boxShadow: `0 0 10px ${this.color}`
-      }
-    }
-  }
-}
+        boxShadow: `0 0 10px ${this.color}`,
+      };
+    },
+  },
+};
 </script>
 
 <style lang='css' scoped>

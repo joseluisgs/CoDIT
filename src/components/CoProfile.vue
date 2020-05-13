@@ -60,57 +60,57 @@
     props: {
       user: {
         type: String,
-        required: true
-      }
+        required: true,
+      },
     },
-    data () {
+    data() {
       return {
         info: {
           followers: 0,
           following: 0,
           public_repos: 0,
-          public_gists: 0
-        }
-      }
+          public_gists: 0,
+        },
+      };
     },
     computed: {
-      avatar () {
+      avatar() {
         return {
-          backgroundImage: `url(${this.info.avatar_url})`
-        }
+          backgroundImage: `url(${this.info.avatar_url})`,
+        };
       },
-      isSelected () {
-        return this.isBookmarked(this.info.login)
-      }
+      isSelected() {
+        return this.isBookmarked(this.info.login);
+      },
     },
     components: {
       CoGoToHome,
       CoSocial,
-      CoEvents
+      CoEvents,
     },
     // Para detectar cuando cambiamos, por que si no no podríamos la haber cargado ya un componente
     // de Esta manera cuando detectamos un cambio de ruta, formzamos que cambien el componente cargando sus datos
     watch: {
-      '$route': 'getUserData'
+      $route: 'getUserData',
     },
-    mounted () {
-      this.getUserData()
+    mounted() {
+      this.getUserData();
     },
     methods: {
-      getUserData () {
+      getUserData() {
         console.log('getUserData');
         return axios({
           method: 'GET',
           url: `${process.env.API}users/${this.user}`,
-          headers: { 'Authorization': `token ${process.env.TOKEN}` }
+          headers: { Authorization: `token ${process.env.TOKEN}` },
         })
           .then(response => response.data)
-          .then(user => {
-            this.info = user
-          })
-        },
-        // Podemos jugar con los ecventos del router desde aquí pero queda aclopado
-       /*  beforeRouteEnter (to, from, next) {
+          .then((user) => {
+            this.info = user;
+          });
+      },
+      // Podemos jugar con los ecventos del router desde aquí pero queda aclopado
+      /*  beforeRouteEnter (to, from, next) {
           console.log('beforeRouteEnter CoProfile');
           next()
         },
@@ -122,8 +122,8 @@
           console.log('beforeRouteLeave CoProfile')
           next()
         } */
-      }
-  }
+    },
+  };
 </script>
 
 

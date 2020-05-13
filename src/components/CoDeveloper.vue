@@ -22,7 +22,7 @@
 </template>
 
 <script>
-// Se suscribe al bus de eventos
+  // Se suscribe al bus de eventos
   export default {
     name: 'CoDeveloper',
     // Props son los datos que recibo de mi padre
@@ -31,62 +31,58 @@
       avatar: {
         type: String,
         required: true,
-        validator (value) {
+        validator(value) {
           return value.startsWith('http');
         },
       },
       name: {
         type: String,
-        required: true
+        required: true,
       },
       login: {
         type: String,
-        required: true
+        required: true,
       },
       email: {
         type: String,
-        required: false
+        required: false,
       },
       company: {
         type: String,
-        required: false
+        required: false,
       },
       repos: {
-        type: Number
+        type: Number,
       },
       gists: {
-        type: Number
-      }
+        type: Number,
+      },
     },
     // Son funciones internas del componente que trabaja con los datos, por eso podemos acceder con el this
     // Caunndo desde la vista accedamos a ella tendrá estos datos que hemos calculado
     // ropiedad interna que se calcula en base a otros.
     computed: {
-      metadata () {
-        let meta = ''
-
+      metadata() {
+        let meta = '';
         if (this.email) {
           meta = `${meta} ${this.email}`;
         }
-
         if (this.location) {
           meta = `${meta} ${this.location}`;
         }
-
         if (this.company) {
           meta = `${meta} ${this.company}`;
         }
-
-        return meta
-      }
+        return meta;
+      },
     },
     // Cuando detecta un cambio en una variable (reactivo) hace la acción
     watch: {
-      metadata (newValue) {
+      metadata(newValue) {
         console.log('Metadata:', newValue);
-      }
-    }
-  }
+      },
+    },
+  };
 </script>
 
 <style lang='css' scoped>

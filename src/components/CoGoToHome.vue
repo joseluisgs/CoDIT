@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  name: 'CoGoToHome'
-}
+  name: 'CoGoToHome',
+};
 </script>
 
 <style lang='css' scoped>

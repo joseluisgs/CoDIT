@@ -23,12 +23,12 @@
   export default {
     name: 'CoBookmarks',
     // Como no siniciliazamos
-    data () {
+    data() {
       return {
-        list: mocks.slice(10)
-      }
-    }
-  }
+        list: mocks.slice(10),
+      };
+    },
+  };
 </script>
 
 <style lang='css' scoped>

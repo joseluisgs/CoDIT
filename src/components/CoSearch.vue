@@ -22,8 +22,8 @@
     // LLo inicializo con un criterio de búsqueda
     data() {
       return {
-        criteria: ''
-      }
+        criteria: '',
+      };
     },
     // Observador, para que se dipsrae y haga el evento una vez lo tengamos
     /* watch: {
@@ -33,16 +33,16 @@
         // mandamos los datos a través del bus, los recibirá quien se suscriba
         bus.$emit('search', this.criteria);
       } */
-      // quitamos el observador que es muy costoso y trabajamos con el evento
-    methods:{
-      onSearch () {
+    // quitamos el observador que es muy costoso y trabajamos con el evento
+    methods: {
+      onSearch() {
         // usamos el evento usando, aunque podríamos usar v-model para accder a la propiedad, asi es más rápido
         this.$emit('search', this.criteria);
         // mandamos los datos a través del bus, los recibirá quien se suscriba
         bus.$emit('search', this.criteria);
-      }
-    }
-  }
+      },
+    },
+  };
 </script>
 
 <style lang='css' scoped>

@@ -23,53 +23,53 @@
     props: {
       user: {
         type: String,
-        required: true
-      }
+        required: true,
+      },
     },
     // Datos de inicio
-    data () {
+    data() {
       return {
-        events: []
-      }
+        events: [],
+      };
     },
     // Computados o trasformaciones de mis datos
     computed: {
-      commits () {
+      commits() {
         return this.events
           .filter(item => item.type === 'PushEvent')
-          .length
+          .length;
       },
-      issues () {
+      issues() {
         return this.events
           .filter(item => item.type === 'IssuesEvent')
-          .length
+          .length;
       },
-      pr () {
+      pr() {
         return this.events
           .filter(item => item.type === 'PullRequestEvent')
-          .length
-      }
+          .length;
+      },
     },
     // Al crearme consultos los datos vía servicio web
-    created () {
-      this.getUserEvents()
+    created() {
+      this.getUserEvents();
     },
     // Métodos
     methods: {
       // Consulto los datos vía axios
-      getUserEvents () {
+      getUserEvents() {
         return axios({
           method: 'GET',
           url: `${process.env.API}users/${this.user}/events/public`,
-          headers: { 'Authorization': `token ${process.env.TOKEN}` }
+          headers: { Authorization: `token ${process.env.TOKEN}` },
         })
           .then(response => response.data)
-          .then(events => {
-            this.events = events
-          })
-      }
-    }
-  }
+          .then((events) => {
+            this.events = events;
+          });
+      },
+    },
+  };
 </script>
 
 <style lang='css' scoped>

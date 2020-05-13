@@ -8,8 +8,8 @@
 
 <script>
   export default {
-    name: 'CoNotFound'
-  }
+    name: 'CoNotFound',
+  };
 </script>
 
 <style lang='css' scoped>

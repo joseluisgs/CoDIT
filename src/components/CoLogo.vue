@@ -7,27 +7,27 @@
   export default {
     name: 'CoLogo',
     data() {
-      return{
-        appName: 'Codit GitHub'
-      }
+      return {
+        appName: 'Codit GitHub',
+      };
     },
     //  permiten filtrar el contenido de los datos que llegan al template desde data, props o computed
-     filters: {
-      upper (value) {
-        console.log('upper')
+    filters: {
+      upper(value) {
+        console.log('upper');
         if (!value) {
-          return ''
+          return '';
         }
-        return value.toUpperCase()
+        return value.toUpperCase();
       },
-      capitalize (value) {
+      capitalize(value) {
         if (!value) {
-          return ''
+          return '';
         }
-        return value.charAt(0) + value.slice(1).toLowerCase()
-      }
-    }
-  }
+        return value.charAt(0) + value.slice(1).toLowerCase();
+      },
+    },
+  };
 </script>
 
 <style lang='css' scoped>
