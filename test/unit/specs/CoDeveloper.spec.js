@@ -25,19 +25,21 @@ describe('Component: CoDeveloper', () => {
     }).$mount(); // Una vez creada lo monta
   });
 
-  // Validamos las propiedades
+  // Validamos las propiedades al crearlo
   describe('components props', () => {
+    // Avatar debe estar requerido
     describe('"avatar"', () => {
       it('should be required', () => {
+        // eslint-disable-next-line no-unused-expressions
         CoDeveloper.props.avatar.required.should.be.true;
       });
-
+      // Y debe ser un String
       it('should be String', () => {
         CoDeveloper.props.avatar.type.name.should.be.equal('String');
       });
     });
   });
-
+  // Despues de montar el componente
   describe('after mount component', () => {
     it('should be mounted successfully', function () {
       this.vm.should.be.defined;
