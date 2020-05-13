@@ -88,6 +88,11 @@
       CoSocial,
       CoEvents
     },
+    // Para detectar cuando cambiamos, por que si no no podríamos la haber cargado ya un componente
+    // de Esta manera cuando detectamos un cambio de ruta, formzamos que cambien el componente cargando sus datos
+    watch: {
+      '$route': 'getUserData'
+    },
     mounted () {
       this.getUserData()
     },
