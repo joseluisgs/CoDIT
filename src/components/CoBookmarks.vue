@@ -18,15 +18,23 @@
 </template>
 
 <script>
-  import mocks from '@/mocks/users';
+  // import mocks from '@/mocks/users';
+  // Nos traemos los getters
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'CoBookmarks',
     // Como no siniciliazamos
-    data() {
+    /* data() {
       return {
         list: mocks.slice(10),
       };
+    }, */
+    // Para usar Vue usamos getters y son variables computadas
+    computed: {
+      ...mapGetters({
+        list: 'bookmarkModule/bookmarks',
+      }),
     },
   };
 </script>

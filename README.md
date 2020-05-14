@@ -31,6 +31,27 @@ Tareas que podemos ejecutar dentro de nuestra aplicación. Te recomiendo leer el
 * [Vue-template PWA](https://github.com/vuejs-templates/pwa) - Template para nuestra aplicación, basado en Progressive Web App
 * [PostCSS](http://postcss.org/) - Herramienta para transformar CSS, y utilizar el CSS del futuro
 
+### Marcadores
+Crea en el localstorage de tu navegador un clave codit  e introduce estos valores
+[
+  {
+    "id": "tj",
+    "name": "TJ Holowaychuk",
+    "login": "tj"
+  },
+  {
+    "id": "addyosmani",
+    "name": "Addy Osmani",
+    "login": "addyosmani"
+  },
+  {
+    "id": "yyx990803",
+    "name": "Evan You",
+    "login": "yyx990803"
+  }
+]
+
+
 ## Author
 * [José Luis González Sánchez](https://twitter.com/joseluisgonsan)
 * [GitHub](https://github.com/joseluisgs)

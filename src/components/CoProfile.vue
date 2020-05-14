@@ -2,6 +2,11 @@
   .user
     .user__home
       co-go-to-home
+    .user__bookmark
+      co-star(
+        v-bind:selected='isBookmarked'
+        v-on:star:clicked='onBookmark'
+      )
     .user__avatar(v-bind:style='avatar')
     .user__social
       co-social(
@@ -53,7 +58,9 @@
   import CoGoToHome from '@/components/CoGoToHome';
   import CoSocial from '@/components/CoSocial';
   import CoEvents from '@/components/CoEvents';
+  import CoStar from '@/components/CoStar';
   import axios from 'axios';
+  import { mapGetters, mapActions } from 'vuex';
 
   export default {
     name: 'CoProfile',
@@ -79,14 +86,20 @@
           backgroundImage: `url(${this.info.avatar_url})`,
         };
       },
-      isSelected() {
-        return this.isBookmarked(this.info.login);
+      // Si está en marcadores ese login
+      isBookmarked() {
+        return this.isSelected(this.info.login);
       },
+      // Si ese usario está marcado en favoritos
+      ...mapGetters({
+        isSelected: 'bookmarkModule/isSelected',
+      }),
     },
     components: {
       CoGoToHome,
       CoSocial,
       CoEvents,
+      CoStar,
     },
     // Para detectar cuando cambiamos, por que si no no podríamos la haber cargado ya un componente
     // de Esta manera cuando detectamos un cambio de ruta, formzamos que cambien el componente cargando sus datos
@@ -108,6 +121,18 @@
           .then((user) => {
             this.info = user;
           });
+      },
+      // Indicamos que estamos modificando
+      ...mapActions({
+        modifyBookmark: 'bookmarkModule/modify',
+      }),
+      // Añadimos el login y el mail
+      onBookmark() {
+        this.modifyBookmark({
+          id: this.info.login,
+          name: this.info.name,
+          login: this.info.login,
+        });
       },
       // Podemos jugar con los ecventos del router desde aquí pero queda aclopado
       /*  beforeRouteEnter (to, from, next) {

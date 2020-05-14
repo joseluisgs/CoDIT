@@ -8,12 +8,15 @@ import router from './router';
 import CoApp from './App';
 // Directivas a nivel globa
 import './directives/focus';
+// Indicamos nuestro store
+import store from './store';
 
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#codit',
+  el: '#codit', // Como se llama la etiqueta donde nos vamos a renderizar en el htm
+  store, // Indicamos el store
   router, // Le decimos el router por defecto
   template: '<co-app/>', // La template por defecto
   components: { CoApp }, // El componente inicial
